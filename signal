@@ -1,0 +1,20 @@
+#include <unistd.h>
+#include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+int x
+int compteur=0;
+void reveil (int s){
+		printf("%d\n", compteur);
+		alarm(42);
+}
+
+
+int main(){
+	signal (SIGALRM, reveil);
+	
+	while (1){
+		compteur++;
+	}
+	exit(EXIT_SUCCESS);
+}
